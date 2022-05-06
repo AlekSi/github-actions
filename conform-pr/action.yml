@@ -1,6 +1,6 @@
 ---
-name: 'PR verification'
-description: 'Verifies that PR`s title does not end with dot. Works for PR-related events only.'
+name: 'Conform PR'
+description: 'Checks that PR conforms to our process guides'
 
 runs:
   using: 'composite'
