@@ -44,13 +44,13 @@ func main() {
 	fmt.Fprintf(w, "\tCheck\tStatus\t\n")
 	fmt.Fprintf(w, "\t-----\t------\t\n")
 
-	conform := true
+	conform_snake := true
 
 	for _, res := range runChecks(ctx, action, client) {
 		status := ":white_check_mark:"
 		if res.err != nil {
 			status = ":x: " + res.err.Error()
-			conform = false
+			conform_snake = false
 		}
 
 		fmt.Fprintf(w, "\t%s\t%s\t\n", res.check, status)
@@ -60,7 +60,7 @@ func main() {
 	action.AddStepSummary(buf.String())
 	action.Infof("%s", buf.String())
 
-	if !conform {
+	if !conform_snake {
 		action.Fatalf("The PR does not conform to the rules.")
 	}
 }
